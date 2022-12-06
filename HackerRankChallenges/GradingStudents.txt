@@ -1,0 +1,26 @@
+    public static List<int> gradingStudents(List<int> grades)
+    {
+        //Create list obj to modify grades (represents final scores)
+        //after implementing conditions in for each : if else system
+        
+        List<int> finalScores = new List<int>();
+        
+        //foreach loop: each grade in grades ListArray will be modified
+        foreach (int grade in grades)
+        {
+            //When using modulus of 5 on a grade we check if remainder < 3
+            //or grade < than 38 to determine if we round or not
+            if (grade % 5 < 3 || grade < 38)
+            {
+                //don't round
+                finalScores.Add(grade);
+            }
+            else
+            {
+                //round
+                finalScores.Add(grade + (5 - (grade % 5)));
+            }
+        }
+        
+        return finalScores;
+    }
