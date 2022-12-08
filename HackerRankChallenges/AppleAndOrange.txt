@@ -1,0 +1,29 @@
+    public static void countApplesAndOranges(int s, int t, int a, int b, List<int> apples, List<int> oranges)
+    {
+        //Two int datatypes representing the count of each fruit
+        //that has fallen on the roof
+        int appleCount = 0;
+        int orangeCount = 0;
+        
+        //foreach loop to iterate each item in the apple arraylist
+        foreach(int apple in apples)
+        {
+            //if tree position (a) + applethrow unit distance (apple) lands between
+            //(>=) house start (s) && (<=) house end (t)
+            if (a + apple >= s && a + apple <= t)
+            {
+                appleCount++; //increase count by 1
+            }
+        }
+        //follows the apple foreach loop concept, but reversed due to being the opposing side
+        foreach (int orange in oranges)
+        {
+            if(b + orange <= t && b + orange >= s)
+            {
+                orangeCount++; //increase count by 1
+            }
+        }
+        
+        Console.WriteLine(appleCount);//Print apple total
+        Console.WriteLine(orangeCount);//Print orange total
+    }
