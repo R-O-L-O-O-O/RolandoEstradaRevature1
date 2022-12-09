@@ -1,46 +1,64 @@
-﻿namespace MoreApiPractice_HTTP_Request;
-using System;
+﻿using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
+using System.Text;
+using System;
 
-public class Program
+class Result
 {
+    /*
+     * Complete the 'kangaroo' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts following parameters:
+     *  1. INTEGER x1
+     *  2. INTEGER v1
+     *  3. INTEGER x2
+     *  4. INTEGER v2
+     */
 
-    public static void Main()
+    public static string Kangaroo(int x1, int v1, int x2, int v2)
     {
-        String studentName = "Jack";
-
-        //get the current type of studentName
-        Type studentNameType = studentName.GetType();
-
-        Console.WriteLine("\nType is: " + studentNameType + "\n");
-
-        //get typeof the Program class and load it to Type variable t     
-        Type t = typeof(Program);
-
-        //get Assembly of variable t using the Assembly property
-        Console.WriteLine(t.Assembly);
-
-        //get typeof String and load it to Type variable t     
-        Type t2 = typeof(String);
-
-        //the Type class properties return information about the String Type 
-        Console.WriteLine("\nName : {0}", t2.Name);
-        Console.WriteLine("Namespace : {0}", t2.Namespace);
-        Console.WriteLine("Base Type : {0}", t2.BaseType);
-
-        Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-
-        
-
-        
+        if((x1 + v1) == (x2 + v2))
+        {
+            return "YES";
+        }
+        else
+        {
+            return "NO";
+        }
     }
 }
 
-internal class Cloud
+class Solution
 {
-   private string Name { get; set; } = "Cloud";
-   private int HP { get ; set; } = 100;
+    public static void Main(string[] args)
+    {
+        TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 
+        string[] firstMultipleInput = Console.ReadLine().TrimEnd().Split(' ');
+
+        int x1 = Convert.ToInt32(firstMultipleInput[0]);
+
+        int v1 = Convert.ToInt32(firstMultipleInput[1]);
+
+        int x2 = Convert.ToInt32(firstMultipleInput[2]);
+
+        int v2 = Convert.ToInt32(firstMultipleInput[3]);
+
+        string result = Result.Kangaroo(x1, v1, x2, v2);
+
+        textWriter.WriteLine(result);
+
+        textWriter.Flush();
+        textWriter.Close();
+    }
 }

@@ -1,0 +1,31 @@
+    public static string kangaroo(int x1, int v1, int x2, int v2)
+    {
+        //If the 1st kangaroo jump distance is less than or equal to the second kangaroo
+        //they'll never meet due to the second kangaroo starting ahead
+        if (v1 <= v2)
+            return "NO";
+            
+        /*
+            speed = distance / jumps
+            distance = speed * jumps
+            
+            After [j] jumps/seconds, kangaroos have to reach same position eventually
+            Distance = v1 or v2 * 'j' 
+
+            K1 total distance = (v1 * j) + x1 (start position)
+            K2 total distance = (v2 * j) + x2 (start position)
+            
+            Per j = (x2 - x1) / (v1 - v2)
+        */
+            
+        //If the remainder is 0, then the kangaroos eventually reach the same position
+        if ((x2 - x1) % (v1 - v2) == 0)
+        {
+            return "YES";
+        }
+        //If there is a remainder, basically means they never land on the same spot
+        else
+        {
+            return "NO";
+        }
+    }
