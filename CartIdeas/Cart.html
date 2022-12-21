@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href = "Cart.css" type = "text/css" rel = "stylesheet" />
+    <title>Cart</title>
+</head>
+
+<body>
+    <h1> My Cart </h1>
+    
+    <p id="demo"></p>
+
+    <script id="Products">
+        var products = sessionStorage.getItem("products");
+        document.getElementById("demo").innerHTML = products;
+    </script>
+
+</body>
+
+</html>
