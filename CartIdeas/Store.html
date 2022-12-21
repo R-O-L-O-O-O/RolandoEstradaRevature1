@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <link href = "Store.css" type = "text/css" rel = "stylesheet" />
+</head>
+<body>
+    <div id="SalesHeader">
+        <header>
+            <h1>
+                Free Shipping On Orders Over $50
+            </h1>
+        </header>
+    </div>
+
+    <div id="TitleBar">
+        <nav id="NavProperties">
+            <button id="btn">
+                <img src="https://static.vecteezy.com/system/resources/previews/000/500/220/original/shopping-cart-icon-design-vector.jpg" alt="Cart">
+            </button>
+        </nav>
+    </div>
+    
+    <p>Select your items:</p>
+    <label for="c1"> <input type="checkbox" name="item" value="shirt" id="c1">Shirt</label>
+    <label for="c2"><input type="checkbox" name="item" value="ball" id="c2"> Ball</label>
+    <label for="c3"><input type="checkbox" name="item" value="shoes" id="c3">Shoes</label>
+    
+    <script>
+        const btn = document.querySelector('#btn');
+        btn.addEventListener('click', (event) => {
+            let checkboxes = document.querySelectorAll('input[name="item"]:checked');
+            let values = [];
+            checkboxes.forEach((checkbox) => {
+                values.push(checkbox.value);
+            });
+            window.open("Cart.html");
+
+            sessionStorage.setItem("products", values);
+
+        });    
+    </script>
+
+</body>
+
+</html>
